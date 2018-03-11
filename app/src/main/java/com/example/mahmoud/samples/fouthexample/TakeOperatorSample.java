@@ -1,4 +1,4 @@
-package com.example.mahmoud.samples;
+package com.example.mahmoud.samples.fouthexample;
 
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -8,9 +8,16 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.mahmoud.samples.AppInfo;
+import com.example.mahmoud.samples.AppRichInfo;
+import com.example.mahmoud.samples.AppsAdapter;
+import com.example.mahmoud.samples.R;
+import com.example.mahmoud.samples.Utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,15 +29,18 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by mahmoud on 11/03/18.
+ */
 
+public class TakeOperatorSample extends AppCompatActivity {
     @BindView(R.id.recyclerview)
     RecyclerView recyclerView;
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
     private File mFilesDir;
     private AppsAdapter adapter;
-
+    private List<AppInfo> data = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new AppsAdapter(new ArrayList<>(), R.layout.item);
+        adapter = new AppsAdapter(data, R.layout.item);
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         swipeRefreshLayout.setProgressViewOffset(false, 0,
@@ -67,13 +77,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshList() {
-        getInstalledApps()
-                .toSortedList()
-                .subscribe(installedApps -> {
+        Observable.fromIterable(getInstalledApps())
+                //.take(3) //take the first three items
+                  .takeLast(3) //take the last three items
+                .subscribe(installedApp -> {
+                            Log.d("xx","xxxxx"+installedApp.getName());
                             //set adapter data
                             recyclerView.setVisibility(View.VISIBLE);
                             //save data
-                            adapter.addApplications(installedApps);
+                            adapter.addApplication(data.size()-1,installedApp);
                             swipeRefreshLayout.setRefreshing(false);
                         },
                         throwable -> {
@@ -90,34 +102,28 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private Observable<AppInfo> getInstalledApps() {
-        return Observable.create(subscriber -> {
-            List<AppRichInfo> apps = new ArrayList<>();
+    private List<AppInfo> getInstalledApps() {
 
-            final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-            mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<AppRichInfo> apps = new ArrayList<>();
+        List<AppInfo> installedApps = new ArrayList<>();
 
-            List<ResolveInfo> infos = getApplication().getPackageManager().queryIntentActivities(mainIntent, 0);
-            for (ResolveInfo info : infos) {
-                apps.add(new AppRichInfo(getApplication(), info));
-            }
 
-            for (AppRichInfo appInfo : apps) {
-                Bitmap icon = Utils.drawableToBitmap(appInfo.getIcon());
-                String name = appInfo.getName();
-                String iconPath = mFilesDir + "/" + name;
-                Utils.storeBitmap(getApplication(), icon, name);
+        final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-                if (subscriber.isDisposed()) {
-                    return;
-                }
-                subscriber.onNext(new AppInfo(name, iconPath, appInfo.getLastUpdateTime()));
-            }
-            if (!subscriber.isDisposed()) {
-                subscriber.onComplete();
-            }
-        });
+        List<ResolveInfo> infos = getApplication().getPackageManager().queryIntentActivities(mainIntent, 0);
+        for (ResolveInfo info : infos) {
+            apps.add(new AppRichInfo(getApplication(), info));
+        }
+
+        for (AppRichInfo appInfo : apps) {
+            Bitmap icon = Utils.drawableToBitmap(appInfo.getIcon());
+            String name = appInfo.getName();
+            String iconPath = mFilesDir + "/" + name;
+            Utils.storeBitmap(getApplication(), icon, name);
+
+            installedApps.add(new AppInfo(name, iconPath, appInfo.getLastUpdateTime()));
+        }
+        return installedApps;
     }
-
-
 }

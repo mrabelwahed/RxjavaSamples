@@ -46,6 +46,10 @@ public class AppsAdapter extends RecyclerView.Adapter<AppsAdapter.ViewHolder>{
             notifyItemInserted(position);
         }
 
+        public List<AppInfo> getmApplications(){
+            return mApplications;
+        }
+
         @Override
         public ViewHolder onCreateViewHolder(final ViewGroup viewGroup, int i) {
            context = viewGroup.getContext();
