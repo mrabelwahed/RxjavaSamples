@@ -16,9 +16,11 @@
                    
    <b>Networking: </b>This package has example shows my repos on github on list with rety option for failed request
                
-   ![Alt Text](https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/rxjava2.gif)
-      ![Alt Text](https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/splash.gif)
 
+<p align="center">
+  <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/rxjava2.gif" width="350"/>
+  <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/splash.gif" width="350"/>
+</p>
 
 
   <h2>Used Libraries</h2>
