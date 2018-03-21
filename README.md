@@ -5,7 +5,7 @@
  <body>
 
   <h1>RxJavaSamples</h1>
-   This repo is a container for some samples using RxJava2.This repo have the following packages>
+   This repo is a container for some samples using RxJava2.This repo have the following packages
       
    <b>Samples: </b>This package has example that shows installed apps in your device
    in list with name and image for each app.This package have many activities
@@ -15,6 +15,7 @@
    activity that shows the using of timer and interval operators
                    
    <b>Networking: </b>This package has example shows my repos on github on list with rety option for failed request
+   and Request state Like IDLE,LOADING,ERROR,COMPLETED using BehaviorSubject
                
 
 <p align="center">
@@ -30,7 +31,6 @@
   <li>GSON</li>
   <li>ButterKnife</li>
   </ul>
-
 
   </body>
   </body>
