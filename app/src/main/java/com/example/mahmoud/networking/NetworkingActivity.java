@@ -56,6 +56,7 @@ public class NetworkingActivity extends AppCompatActivity {
                 .doOnSubscribe(subscriber->progressBar.setVisibility(View.VISIBLE))
                 .doOnDispose(()->progressBar.setVisibility(View.GONE))
                 .subscribe(repos -> {
+                    progressBar.setVisibility(View.GONE);
                             setAdapterData(repos);
                         },
                         throwable -> {
