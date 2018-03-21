@@ -39,7 +39,7 @@
  <h2>Contributing<h2>
   Any contributions are more than welcomed from other developers to help us make the
   Repo even better. Before you contribute there are a number of things that you should
-  know please see <a href src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/contributing.md">Contributing </a>for details.
+  know please see <a href="https://github.com/mrabelwahed/RxjavaSamples/blob/master/contributing.md">Contributing </a>for details.
 
   </body>
   </body>
