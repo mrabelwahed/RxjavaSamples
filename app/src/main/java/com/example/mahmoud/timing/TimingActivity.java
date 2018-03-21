@@ -60,15 +60,7 @@ public class TimingActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.timing3)
-    public void doTiming3() {
 
-    }
-
-    @OnClick(R.id.timing4)
-    public void doTiming4() {
-
-    }
 
     private String getCurrentTimestamp() {
         return new SimpleDateFormat("k:m:s:S a", Locale.getDefault()).format(new Date());

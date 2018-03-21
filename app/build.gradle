@@ -37,11 +37,20 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
     //Rxjava2
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
-    //compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
 
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //Gson-Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //okhttp logging
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    // rxjava2 adaptar
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
 
 
     testImplementation 'junit:junit:4.12'
