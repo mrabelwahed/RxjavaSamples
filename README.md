@@ -27,6 +27,7 @@
 <p align="center">
   <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/rxjava2.gif" width="350"/>
   <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/splash.gif" width="350"/>
+  <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/room.gif" width="350"/>
 
 </p>
 
