@@ -17,6 +17,8 @@
    <b>Networking: </b>This package has example shows my repos on github on list with rety option for failed request
    and Request state Like IDLE,LOADING,ERROR,COMPLETED using BehaviorSubject
 
+   <b>Caching: </b>This package has example shows my bio update using Room data base with RxJava
+
    <h2>How to run the samples</h2>
       I used the package style per feature so for instance you will find under networking package
        all related activities with awesome concepts.So to test certain concept add the activity refrence
@@ -25,6 +27,7 @@
 <p align="center">
   <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/rxjava2.gif" width="350"/>
   <img src="https://github.com/mrabelwahed/RxjavaSamples/blob/master/app/gif/splash.gif" width="350"/>
+
 </p>
 
 
@@ -34,6 +37,8 @@
   <li>Retrofit</li>
   <li>GSON</li>
   <li>ButterKnife</li>
+  <li>Android Architecture Components</li>
+
   </ul>
 
  <h2>Contributing</h2>

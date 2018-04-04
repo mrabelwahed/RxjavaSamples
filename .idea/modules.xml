@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RxInstalledApps.iml" filepath="$PROJECT_DIR$/RxInstalledApps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RxjavaSamples.iml" filepath="$PROJECT_DIR$/RxjavaSamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RxSamples</string>
+    <string name="permission_request">Location Permission </string>
+    <string name="ok">OK</string>
+    <string name="no_location_detected">NO Location Detected</string>
+    <string name="permission_denied_explanation">App need this permission to get current location</string>
+    <string name="settings">Settings</string>
+    <string name="update_user">Update user</string>
 </resources>
